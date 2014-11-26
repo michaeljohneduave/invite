@@ -1,0 +1,15 @@
+#map {
+	width: 100%;
+	height: 600px;
+}
+
+.overlay-btn {
+	position: fixed;
+	width: 5%;
+	height: 5%;
+}
+
+#currentlocbtn {
+	top: 20%;
+	right: 1%;
+}
