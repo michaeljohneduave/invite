@@ -1,5 +1,6 @@
 gmaps = {
 	map : null,
+	infoBox : null,
 	markers : [],
 	latLngs : [],
 	markerData : [],
@@ -14,6 +15,10 @@ gmaps = {
 		this.latLngs.push(gLatLang);
 		this.markers.push(gMarker);
 		this.markerData.push(marker);
+		google.maps.event.addListener(gMarker, 'click', function () {
+			gmaps.infoBox.open(gmaps.map,this);
+			Session.set('markerid', marker.id);
+		});
 		return gMarker;
 	},
 	calcBounds : function () {
@@ -24,7 +29,7 @@ gmaps = {
 		this.map.fitBounds(bounds);
 	},
 	markerExists : function (key, val) {
-		_.each(this.markers, function (storedMarker){
+		_.each(this.markerData, function (storedMarker){
 			if(storedMarker[key] == val) return true;
 		});
 		return false;	
@@ -32,7 +37,7 @@ gmaps = {
 	initialize : function (lat, lng) {
 		console.log("[+] Intializing Google Maps...");
 		var mapOptions = {
-			zoom : 19,
+			zoom : 16,
 			center : new google.maps.LatLng(lat, lng),
 			mapTypeId : google.maps.MapTypeId.ROADMAP,
 			disableDoubleClickZoom : true,
@@ -43,7 +48,7 @@ gmaps = {
 	setCenter : function (lat, lng) {
 		this.map.panTo({lat : lat, lng : lng});
 	},
-	getMap : function() {
-		return this.map;
+	removeMarker : function (marker) {
+
 	},
 }

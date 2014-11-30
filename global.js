@@ -1,1 +1,1 @@
-Coordinates = new Meteor.Collection("Coordinates" , {idGeneration : 'MONGO'});
+Events = new Meteor.Collection("Events" , {idGeneration : 'MONGO'});

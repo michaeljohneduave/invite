@@ -1,6 +1,6 @@
 #map {
 	width: 100%;
-	height: 600px;
+	height: 850px;
 }
 
 .overlay-btn {
@@ -9,7 +9,53 @@
 	height: 5%;
 }
 
-#currentlocbtn {
-	top: 20%;
+.ticker {
+	position : fixed;
+	top: 7%;
 	right: 1%;
+	background: green;
+	opacity: .9;
+	height: 50%;
+	overflow: scroll;
+	overflow-x: hidden;
+
+}
+.ticker-bg {
+	margin: 5px;
+}
+
+#currentlocbtn {
+	top: 70%;
+	right: 2%;
+}
+
+#addeventbtn {
+	top: 70%;
+	right: 10%;
+}
+
+.infobox-wrapper {
+    display:none;
+}
+#infobox {
+    border:2px solid black;
+    margin-top: 8px;
+    background:#333;
+    color:#FFF;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    padding: .5em 1em;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    text-shadow:0 -1px #000000;
+    -webkit-box-shadow: 0 0  8px #000;
+    box-shadow: 0 0 8px #000;
+}
+
+.event-container {
+	border : 2px solid black;
+	margin-top: 3px;
+	border-radius: 2px;
+	font-family:Arial, Helvetica, sans-serif;
 }

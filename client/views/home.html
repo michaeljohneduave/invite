@@ -1,4 +1,53 @@
 <template name="home">
-<div class="map-canvas" id="map"></div>
-<button type="button" class="overlay-btn" id='currentlocbtn' >Now</button>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="map-canvas" id="map"></div>
+				<div class="modal fade" id='markermodal'>
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title">Create Event</h4>
+							</div>
+							<form id="eventform" action="" validate>	
+								<div class="modal-body">
+									Event name: <input type="text" class="form-control" id="eventnamefield" required>
+									Event Start: <input type="date" class="form-control" id="eventstartfield" required>
+									Event End: <input type="date" class="form-control" id="eventendfield" required>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal" id="closemarkermodal">Close</button>
+									<button type="submit" class="btn btn-primary" id="savemarkermodal">Save</button>
+								</div>
+							</form>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+				<button type="button" class="btn btn-default overlay-btn" id='currentlocbtn'>Now</button>
+				<button type="button" class="btn btn-default overlay-btn" id="addeventbtn">Create</button>
+			</div>
+
+		</div>
+	</div>
+	<div class="ticker" id="eventsfeed">
+		<div class="ticker-bg">
+			{{#each EventTicker}}
+			<div class="event-container" id="{{_id._str}}" lat="{{marker.lat}}" lng="{{marker.lng}}">
+				Event: {{name}} <br>
+				Start : {{start}} <br>
+				End : {{end}} <br>
+			</div>
+			{{/each}}
+		</div>
+
+	</div>
+	<div class="infobox-wrapper">
+		<div id="infobox">
+			Event: {{EventName}} <br>
+			Start : {{EventStart}} <br>
+			End : {{EventEnd}} <br>
+		</div>
+	</div>
 </template>
+

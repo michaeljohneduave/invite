@@ -8,6 +8,9 @@ autopublish
 insecure
 accounts-base
 accounts-password
-mrt:googlemaps
 mrt:moment
-
+alanning:roles
+iron:router
+sacha:spin
+mizzao:bootstrap-3
+mrt:googlemaps
